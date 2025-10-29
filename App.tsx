@@ -70,6 +70,7 @@ const App: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [orientation, setOrientation] = useState<DeviceOrientation>({ alpha: null, beta: null, gamma: null });
+  const [smoothedOrientation, setSmoothedOrientation] = useState<DeviceOrientation>({ alpha: null, beta: null, gamma: null });
   const [location, setLocation] = useState<Coordinates | null>(null);
   const [moonPosition, setMoonPosition] = useState<MoonPosition | null>(null);
   const [moonIllumination, setMoonIllumination] = useState<number | null>(null);
@@ -109,6 +110,7 @@ const App: React.FC = () => {
     setAppState(AppState.REQUESTING_PERMISSIONS);
     setLocation(null);
     setOrientation({ alpha: null, beta: null, gamma: null });
+    setSmoothedOrientation({ alpha: null, beta: null, gamma: null });
     setMoonPosition(null);
     setMoonIllumination(null);
     setBlessing(null);
@@ -151,6 +153,32 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    // Apply a low-pass filter to smooth out sensor jitter for a more stable UI
+    const SMOOTHING_FACTOR = 0.05; // Lower is smoother, but less responsive
+    
+    setSmoothedOrientation(prev => {
+      // If we don't have a previous value or a current value, don't smooth
+      if (prev.alpha === null || orientation.alpha === null || prev.beta === null || orientation.beta === null) {
+        return orientation;
+      }
+
+      // Smooth alpha (compass heading), correcting for the 360->0 degree wraparound
+      let deltaAlpha = orientation.alpha - prev.alpha;
+      if (deltaAlpha > 180) deltaAlpha -= 360;
+      if (deltaAlpha < -180) deltaAlpha += 360;
+      const smoothedAlpha = (prev.alpha + deltaAlpha * SMOOTHING_FACTOR + 360) % 360;
+
+      // Smooth beta (pitch)
+      const smoothedBeta = prev.beta + (orientation.beta - prev.beta) * SMOOTHING_FACTOR;
+      
+      // Smooth gamma (roll) - currently unused but good practice
+      const smoothedGamma = (prev.gamma ?? 0) + ((orientation.gamma ?? 0) - (prev.gamma ?? 0)) * SMOOTHING_FACTOR;
+
+      return { alpha: smoothedAlpha, beta: smoothedBeta, gamma: smoothedGamma };
+    });
+  }, [orientation]);
+
+  useEffect(() => {
     if (location) {
       const now = new Date();
       const pos = SunCalc.getMoonPosition(now, location.latitude, location.longitude);
@@ -163,22 +191,35 @@ const App: React.FC = () => {
   }, [location]);
 
   const guidance = useMemo(() => {
-    if (!orientation.alpha || !orientation.beta || !moonPosition) {
+    // Use the smoothed orientation data for calculations
+    if (smoothedOrientation.alpha === null || smoothedOrientation.beta === null || !moonPosition) {
       return { deltaAz: 0, deltaAlt: 0, isMoonInView: false, screenPos: { x: '50%', y: '50%' }, arrowRotation: 0 };
     }
-    let deltaAz = moonPosition.azimuth - orientation.alpha;
+
+    // Calculate horizontal difference (azimuth) from moon
+    let deltaAz = moonPosition.azimuth - smoothedOrientation.alpha;
+    // Normalize to the shortest angle (-180 to 180)
     if (deltaAz > 180) deltaAz -= 360;
     if (deltaAz < -180) deltaAz += 360;
-    const deviceAltitude = orientation.beta - 90;
+
+    // Correctly calculate device's vertical orientation (altitude)
+    // 90 degrees beta is upright (0 altitude), 0 degrees beta is flat facing sky (90 altitude)
+    const deviceAltitude = 90 - smoothedOrientation.beta;
     let deltaAlt = moonPosition.altitude - deviceAltitude;
+    
     const isMoonInView = Math.abs(deltaAz) < VIEW_THRESHOLD && Math.abs(deltaAlt) < VIEW_THRESHOLD;
+
+    // Calculate the moon's position on screen for the target icon
     const x = 50 + (deltaAz / (HORIZONTAL_FOV / 2)) * 50;
     const y = 50 - (deltaAlt / (VERTICAL_FOV / 2)) * 50;
     const screenX = `${Math.max(5, Math.min(95, x))}%`;
     const screenY = `${Math.max(5, Math.min(95, y))}%`;
+
+    // Calculate the rotation for the central directional arrow
     const arrowRotation = (Math.atan2(-deltaAlt, deltaAz) * 180 / Math.PI) + 90;
+
     return { isMoonInView, screenPos: { x: screenX, y: screenY }, arrowRotation };
-  }, [orientation, moonPosition]);
+  }, [smoothedOrientation, moonPosition]);
   
   const handleGetBlessing = useCallback(async () => {
     setIsFetchingBlessing(true);
