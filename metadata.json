@@ -1,0 +1,8 @@
+{
+  "name": "Lunar Guide AR",
+  "description": "An augmented reality web application that helps you find the Moon in the night sky. Using your device's camera and location, it provides real-time guidance to locate the moon and offers a poetic blessing upon finding it.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}
