@@ -20,14 +20,56 @@ const LANGUAGES: Record<string, string> = {
 };
 
 const translations: Record<string, Record<string, string>> = {
-  en: { title: 'Find the Moon and Bless It', subtitle: 'An AR guide to the night sky.', beginSearch: 'Begin Search', calibrating: 'Calibrating sensors...', errorTitle: 'Error', locationError: 'Could not get your location. Please enable location services.', permissionError: 'Camera and location access are required. Please grant permissions and refresh.', unexpectedError: 'An unexpected error occurred. Please refresh the page.', tryAgain: 'Try Again', sensorWait: 'Waiting for sensor data...', sensorHint: 'Please move your device around slowly.', receiveBlessing: 'Receive Blessing', receiving: 'Receiving...', close: 'Close', language: 'Language', settings: 'Settings', crosshairColor: 'Viewfinder Color', about: 'About', aboutText: 'Noam Gold Google AI Studio 2025', moonVisibility: 'Moon Visibility' },
-  es: { title: 'Encuentra la Luna y Bendícela', subtitle: 'Una guía de RA para el cielo nocturno.', beginSearch: 'Iniciar Búsqueda', calibrating: 'Calibrando sensores...', errorTitle: 'Error', locationError: 'No se pudo obtener tu ubicación. Por favor, activa los servicios de ubicación.', permissionError: 'Se requiere acceso a la cámara y la ubicación. Por favor, concede los permisos y actualiza.', unexpectedError: 'Ocurrió un error inesperado. Por favor, actualiza la página.', tryAgain: 'Intentar de Nuevo', sensorWait: 'Esperando datos de los sensores...', sensorHint: 'Por favor, mueve tu dispositivo lentamente.', receiveBlessing: 'Recibir Bendición', receiving: 'Recibiendo...', close: 'Cerrar', language: 'Idioma', settings: 'Ajustes', crosshairColor: 'Color del Visor', about: 'Acerca de', aboutText: 'Noam Gold Google AI Studio 2025', moonVisibility: 'Visibilidad Lunar' },
-  he: { title: 'מצא את הירח וברך אותו', subtitle: 'מדריך AR לשמי הלילה.', beginSearch: 'התחל חיפוש', calibrating: 'מכייל חיישנים...', errorTitle: 'שגיאה', locationError: 'לא ניתן היה לקבל את מיקומך. אנא אפשר שירותי מיקום.', permissionError: 'נדרשת גישה למצלמה ולמיקום. אנא הענק הרשאות ורענן.', unexpectedError: 'אירעה שגיאה בלתי צפויה. אנא רענן את הדף.', tryAgain: 'נסה שוב', sensorWait: 'ממתין לנתוני חיישנים...', sensorHint: 'אנא הזז את המכשיר שלך לאט.', receiveBlessing: 'קבל ברכה', receiving: 'מקבל...', close: 'סגור', language: 'שפה', settings: 'הגדרות', crosshairColor: 'צבע הכוונת', about: 'אודות', aboutText: 'נועם גולד גוגל AI סטודיו 2025', moonVisibility: 'נראות הירח' },
-  de: { title: 'Finde den Mond und Segne Ihn', subtitle: 'Ein AR-Führer für den Nachthimmel.', beginSearch: 'Suche starten', calibrating: 'Sensoren werden kalibriert...', errorTitle: 'Fehler', locationError: 'Dein Standort konnte nicht ermittelt werden. Bitte aktiviere die Ortungsdienste.', permissionError: 'Kamera- und Standortzugriff sind erforderlich. Bitte erteile die Berechtigungen und aktualisiere.', unexpectedError: 'Ein unerwarteter Fehler ist aufgetreten. Bitte lade die Seite neu.', tryAgain: 'Erneut versuchen', sensorWait: 'Warte auf Sensordaten...', sensorHint: 'Bitte bewege dein Gerät langsam.', receiveBlessing: 'Segen empfangen', receiving: 'Empfange...', close: 'Schließen', language: 'Sprache', settings: 'Einstellungen', crosshairColor: 'Sucherfarbe', about: 'Über', aboutText: 'Noam Gold Google AI Studio 2025', moonVisibility: 'Mondsichtbarkeit' },
-  fr: { title: 'Trouvez la Lune et Bénissez-la', subtitle: 'Un guide en RA du ciel nocturne.', beginSearch: 'Commencer la recherche', calibrating: 'Calibrage des capteurs...', errorTitle: 'Erreur', locationError: "Impossible d'obtenir votre position. Veuillez activer les services de localisation.", permissionError: "L'accès à la caméra et à la localisation est requis. Veuillez accorder les autorisations et rafraîchir.", unexpectedError: "Une erreur inattendue s'est produite. Veuillez rafraîchir la page.", tryAgain: 'Réessayer', sensorWait: 'En attente des données des capteurs...', sensorHint: 'Veuillez déplacer votre appareil lentement.', receiveBlessing: 'Recevoir la bénédiction', receiving: 'Réception...', close: 'Fermer', language: 'Langue', settings: 'Paramètres', crosshairColor: 'Couleur du Viseur', about: 'À propos', aboutText: 'Noam Gold Google AI Studio 2025', moonVisibility: 'Visibilité de la Lune' },
-  zh: { title: '寻找月亮并祝福它', subtitle: '夜空的AR指南。', beginSearch: '开始搜索', calibrating: '正在校准传感器...', errorTitle: '错误', locationError: '无法获取您的位置。请启用定位服务。', permissionError: '需要相机和位置权限。请授予权限并刷新。', unexpectedError: '发生意外错误。请刷新页面。', tryAgain: '再试一次', sensorWait: '等待传感器数据...', sensorHint: '请缓慢移动您的设备。', receiveBlessing: '接受祝福', receiving: '正在接收...', close: '关闭', language: '语言', settings: '设置', crosshairColor: '取景器颜色', about: '关于', aboutText: '诺姆·戈尔德 谷歌AI工作室 2025', moonVisibility: '月球可见度' },
-  ru: { title: 'Найди Луну и Благослови Ее', subtitle: 'AR-гид по ночному небу.', beginSearch: 'Начать поиск', calibrating: 'Калибровка датчиков...', errorTitle: 'Ошибка', locationError: 'Не удалось получить ваше местоположение. Пожалуйста, включите службы геолокации.', permissionError: 'Требуется доступ к камере и местоположению. Пожалуйста, предоставьте разрешения и обновите страницу.', unexpectedError: 'Произошла непредвиденная ошибка. Пожалуйста, обновите страницу.', tryAgain: 'Попробовать снова', sensorWait: 'Ожидание данных с датчиков...', sensorHint: 'Пожалуйста, медленно перемещайте ваше устройство.', receiveBlessing: 'Получить благословение', receiving: 'Получение...', close: 'Закрыть', language: 'Язык', settings: 'Настройки', crosshairColor: 'Цвет видоискателя', about: 'О программе', aboutText: 'Ноам Голд Google AI Studio 2025', moonVisibility: 'Видимость Луны' },
+  en: { title: 'Find the Moon and Bless It', subtitle: 'An AR guide to the night sky.', beginSearch: 'Begin Search', calibrating: 'Calibrating sensors...', errorTitle: 'Error', locationError: 'Could not get your location. Please enable location services.', permissionError: 'Camera and location access are required. Please grant permissions and refresh.', unexpectedError: 'An unexpected error occurred. Please refresh the page.', tryAgain: 'Try Again', sensorWait: 'Waiting for sensor data...', sensorHint: 'Please move your device around slowly.', receiveBlessing: 'Receive Blessing', receiving: 'Receiving...', close: 'Close', language: 'Language', settings: 'Settings', crosshairColor: 'Viewfinder Color', about: 'About', aboutText: 'Noam Gold Google AI Studio 2025', moonVisibility: 'Moon Visibility', traditionalBlessing: 'Traditional Blessing', traditionalBlessingTitle: 'Blessing of the Moon' },
+  es: { title: 'Encuentra la Luna y Bendícela', subtitle: 'Una guía de RA para el cielo nocturno.', beginSearch: 'Iniciar Búsqueda', calibrating: 'Calibrando sensores...', errorTitle: 'Error', locationError: 'No se pudo obtener tu ubicación. Por favor, activa los servicios de ubicación.', permissionError: 'Se requiere acceso a la cámara y la ubicación. Por favor, concede los permisos y actualiza.', unexpectedError: 'Ocurrió un error inesperado. Por favor, actualiza la página.', tryAgain: 'Intentar de Nuevo', sensorWait: 'Esperando datos de los sensores...', sensorHint: 'Por favor, mueve tu dispositivo lentamente.', receiveBlessing: 'Recibir Bendición', receiving: 'Recibiendo...', close: 'Cerrar', language: 'Idioma', settings: 'Ajustes', crosshairColor: 'Color del Visor', about: 'Acerca de', aboutText: 'Noam Gold Google AI Studio 2025', moonVisibility: 'Visibilidad Lunar', traditionalBlessing: 'Bendición Tradicional', traditionalBlessingTitle: 'Bendición de la Luna' },
+  he: { title: 'מצא את הירח וברך אותו', subtitle: 'מדריך AR לשמי הלילה.', beginSearch: 'התחל חיפוש', calibrating: 'מכייל חיישנים...', errorTitle: 'שגיאה', locationError: 'לא ניתן היה לקבל את מיקומך. אנא אפשר שירותי מיקום.', permissionError: 'נדרשת גישה למצלמה ולמיקום. אנא הענק הרשאות ורענן.', unexpectedError: 'אירעה שגיאה בלתי צפויה. אנא רענן את הדף.', tryAgain: 'נסה שוב', sensorWait: 'ממתין לנתוני חיישנים...', sensorHint: 'אנא הזז את המכשיר שלך לאט.', receiveBlessing: 'קבל ברכה', receiving: 'מקבל...', close: 'סגור', language: 'שפה', settings: 'הגדרות', crosshairColor: 'צבע הכוונת', about: 'אודות', aboutText: 'נועם גולד גוגל AI סטודיו 2025', moonVisibility: 'נראות הירח', traditionalBlessing: 'ברכת הלבנה', traditionalBlessingTitle: 'ברכת הלבנה' },
+  de: { title: 'Finde den Mond und Segne Ihn', subtitle: 'Ein AR-Führer für den Nachthimmel.', beginSearch: 'Suche starten', calibrating: 'Sensoren werden kalibriert...', errorTitle: 'Fehler', locationError: 'Dein Standort konnte nicht ermittelt werden. Bitte aktiviere die Ortungsdienste.', permissionError: 'Kamera- und Standortzugriff sind erforderlich. Bitte erteile die Berechtigungen und aktualisiere.', unexpectedError: 'Ein unerwarteter Fehler ist aufgetreten. Bitte lade die Seite neu.', tryAgain: 'Erneut versuchen', sensorWait: 'Warte auf Sensordaten...', sensorHint: 'Bitte bewege dein Gerät langsam.', receiveBlessing: 'Segen empfangen', receiving: 'Empfange...', close: 'Schließen', language: 'Sprache', settings: 'Einstellungen', crosshairColor: 'Sucherfarbe', about: 'Über', aboutText: 'Noam Gold Google AI Studio 2025', moonVisibility: 'Mondsichtbarkeit', traditionalBlessing: 'Traditioneller Segen', traditionalBlessingTitle: 'Segen des Mondes' },
+  fr: { title: 'Trouvez la Lune et Bénissez-la', subtitle: 'Un guide en RA du ciel nocturne.', beginSearch: 'Commencer la recherche', calibrating: 'Calibrage des capteurs...', errorTitle: 'Erreur', locationError: "Impossible d'obtenir votre position. Veuillez activer les services de localisation.", permissionError: "L'accès à la caméra et à la localisation est requis. Veuillez accorder les autorisations et rafraîchir.", unexpectedError: "Une erreur inattendue s'est produite. Veuillez rafraîchir la page.", tryAgain: 'Réessayer', sensorWait: 'En attente des données des capteurs...', sensorHint: 'Veuillez déplacer votre appareil lentement.', receiveBlessing: 'Recevoir la bénédiction', receiving: 'Réception...', close: 'Fermer', language: 'Langue', settings: 'Paramètres', crosshairColor: 'Couleur du Viseur', about: 'À propos', aboutText: 'Noam Gold Google AI Studio 2025', moonVisibility: 'Visibilité de la Lune', traditionalBlessing: 'Bénédiction Traditionnelle', traditionalBlessingTitle: 'Bénédiction de la Lune' },
+  zh: { title: '寻找月亮并祝福它', subtitle: '夜空的AR指南。', beginSearch: '开始搜索', calibrating: '正在校准传感器...', errorTitle: '错误', locationError: '无法获取您的位置。请启用定位服务。', permissionError: '需要相机和位置权限。请授予权限并刷新。', unexpectedError: '发生意外错误。请刷新页面。', tryAgain: '再试一次', sensorWait: '等待传感器数据...', sensorHint: '请缓慢移动您的设备。', receiveBlessing: '接受祝福', receiving: '正在接收...', close: '关闭', language: '语言', settings: '设置', crosshairColor: '取景器颜色', about: '关于', aboutText: '诺姆·戈尔德 谷歌AI工作室 2025', moonVisibility: '月球可见度', traditionalBlessing: '传统祝福', traditionalBlessingTitle: '月亮祝福' },
+  ru: { title: 'Найди Луну и Благослови Ее', subtitle: 'AR-гид по ночному небу.', beginSearch: 'Начать поиск', calibrating: 'Калибровка датчиков...', errorTitle: 'Ошибка', locationError: 'Не удалось получить ваше местоположение. Пожалуйста, включите службы геолокации.', permissionError: 'Требуется доступ к камере и местоположению. Пожалуйста, предоставьте разрешения и обновите страницу.', unexpectedError: 'Произошла непредвиденная ошибка. Пожалуйста, обновите страницу.', tryAgain: 'Попробовать снова', sensorWait: 'Ожидание данных с датчиков...', sensorHint: 'Пожалуйста, медленно перемещайте ваше устройство.', receiveBlessing: 'Получить благословение', receiving: 'Получение...', close: 'Закрыть', language: 'Язык', settings: 'Настройки', crosshairColor: 'Цвет видоискателя', about: 'О программе', aboutText: 'Ноам Голд Google AI Studio 2025', moonVisibility: 'Видимость Луны', traditionalBlessing: 'Традиционное благословение', traditionalBlessingTitle: 'Благословение Луны' },
 };
+
+const sephardicBlessingText = (
+  <div dir="rtl" className="text-right space-y-4 font-serif text-lg leading-relaxed">
+    <p className="italic text-sm text-gray-600 dark:text-gray-400">נהוג לומר קודם את הפסוקים הבאים:</p>
+    <p>
+      לַמְנַצֵּחַ מִזְמוֹר לְדָוִד. הַשָּׁמַיִם מְסַפְּרִים כְּבוֹד אֵל וּמַעֲשֵׂה יָדָיו מַגִּיד הָרָקִיעַ. יוֹם לְיוֹם יַבִּיעַ אֹמֶר וְלַיְלָה לְּלַיְלָה יְחַוֶּה דָּעַת. אֵין אֹמֶר וְאֵין דְּבָרִים בְּלִי נִשְׁמָע קוֹלָם. בְּכָל הָאָרֶץ יָצָא קַוָּם וּבִקְצֵה תֵבֵל מִלֵּיהֶם לַשֶּׁמֶשׁ שָׂם אֹהֶל בָּהֶם. וְהוּא כְּחָתָן יֹצֵא מֵחֻפָּתוֹ יָשִׂישׂ כְּגִבּוֹר לָרוּץ אֹרַח. מִקְצֵה הַשָּׁמַיִם מוֹצָאוֹ וּתְקוּפָתוֹ עַל קְצוֹתָם וְאֵין נִסְתָּר מֵחַמָּתוֹ. תּוֹרַת יְהוָה תְּמִימָה מְשִׁיבַת נָפֶשׁ עֵדוּת יְהוָה נֶאֱמָנָה מַחְכִּימַת פֶּתִי. פִּקּוּדֵי יְהוָה יְשָׁרִים מְשַׂמְחֵי לֵב מִצְוַת יְהוָה בָּרָה מְאִירַת עֵינָיִם. יִרְאַת יְהוָה טְהוֹרָה עוֹמֶדֶת לָעַד מִשְׁפְּטֵי יְהוָה אֱמֶת צָדְקוּ יַחְדָּו. הַנֶּחֱמָדִים מִזָּהָב וּמִפַּז רָב וּמְתוּקִים מִדְּבַשׁ וְנֹפֶת צוּפִים. גַּם עַבְדְּךָ נִזְהָר בָּהֶם בְּשָׁמְרָם עֵקֶב רָב. שְׁגִיאוֹת מִי יָבִין מִנִּסְתָּרוֹת נַקֵּנִי. גַּם מִזֵּדִים חֲשׂךְ עַבְדְּךָ אַל יִמְשְׁלוּ בִי אָז אֵיתָם וְנִקֵּיתִי מִפֶּשַׁע רָב. יִהְיוּ לְרָצוֹן אִמְרֵי פִי וְהֶגְיוֹן לִבִּי לְפָנֶיךָ יְהוָה צוּרִי וְגֹאֲלִי. (תהילים יט)
+    </p>
+    <p>
+      הַלְלוּ יָהּ הַלְלוּ אֶת יְהוָה מִן הַשָּׁמַיִם הַלְלוּהוּ בַּמְּרוֹמִים. הַלְלוּהוּ כָל מַלְאָכָיו הַלְלוּהוּ כָּל צְבָאָיו. הַלְלוּהוּ שֶׁמֶשׁ וְיָרֵחַ הַלְלוּהוּ כָּל כּוֹכְבֵי אוֹר. הַלְלוּהוּ שְׁמֵי הַשָּׁמָיִם וְהַמַּיִם אֲשֶׁר מֵעַל הַשָּׁמָיִם. יְהַלְלוּ אֶת שֵׁם יְהוָה כִּי הוּא צִוָּה וְנִבְרָאוּ. וַיַּעֲמִידֵם לָעַד לְעוֹלָם חֹק נָתַן וְלֹא יַעֲבוֹר. (תהילים קמח, א-ו)
+    </p>
+    <p>
+    כִּי אֶרְאֶה שָׁמֶיךָ מַעֲשֵׂי אֶצְבְּעֹתֶיךָ יָרֵחַ וְכוֹכָבִים אֲשֶׁר כּוֹנָנְתָּה. (תהילים ח, ד) יְיָ אֲדֹנֵינוּ מָה אַדִּיר שִׁמְךָ בְּכָל הָאָרֶץ. (תהילים ח, י)
+    </p>
+    <h3 className="font-bold text-xl pt-2">הברכה העיקרית</h3>
+    <p>
+      בָּרוּךְ אַתָּה יְיָ, אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם, אֲשֶׁר בְּמַאֲמָרוֹ בָּרָא שְׁחָקִים, וּבְרוּחַ פִּיו כָּל צְבָאָם. חֹק וּזְמַן נָתַן לָהֶם שֶׁלֹּא יְשַׁנּוּ אֶת תַפְקִידָם. שָׂשִׂים וּשְׂמֵחִים לַעֲשׂוֹת רְצוֹן קוֹנֵיהֶם, פּוֹעֵל אֱמֶת שֶׁפְּעֻלָּתוֹ אֱמֶת. וְלַלְּבָנָה אָמַר שֶׁתִּתְחַדֵּשׁ, עֲטֶרֶת תִּפְאֶרֶת לַעֲמוּסֵי בָטֶן שֶׁהֵם עֲתִידִים לְהִתְחַדֵּשׁ כְּמוֹתָהּ, וּלְפָאֵר לְיוֹצְרָם עַל שֵׁם כְּבוֹד מַלְכוּתוֹ. בָּרוּךְ אַתָּה יְיָ, מְחַדֵּשׁ חֳדָשִׁים.
+    </p>
+     <h3 className="font-bold text-xl pt-2">לאחר הברכה</h3>
+    <p>בְּסִימָן טוֹב תְּהִי לָנוּ וּלְכָל יִשְׂרָאֵל. (ג' פעמים)</p>
+    <p>בָּרוּךְ יוֹצְרֵךְ, בָּרוּךְ עוֹשֵׂךְ, בָּרוּךְ קוֹנֵךְ, בָּרוּךְ בּוֹרְאֵךְ. (ג' פעמים)</p>
+    <p>
+      (רוקדים 3 פעמים ואומרים):<br/>
+      כְּשֵׁם שֶׁאֲנַחְנוּ מְרַקְּדִים כְּנֶגְדֵּךְ וְאֵין אֲנַחְנוּ יְכוֹלִים לִגַּע בָּךְ, כַּךְ אִם יְרַקְּדוּ אֲחֵרִים כְּנֶגְדֵּנוּ לְהַזִּיקֵנוּ, לֹא יוּכְלוּ לִגַּע בָּנוּ וְלֹא יִשְׁלְטוּ בָנוּ וְלֹא יַעֲשׂוּ בָנוּ שׁוּם רֹשֶׁם.
+    </p>
+    <p>תִּפּוֹל עֲלֵיהֶם אֵימָתָה וָפַחַד, בִּגְדֹל זְרוֹעֲךָ יִדְּמוּ כָּאָבֶן. (ג' פעמים)</p>
+    <p>כָּאָבֶן יִדְּמוּ זְרוֹעֲךָ בִּגְדֹל וָפַחַד אֵימָתָה עֲלֵיהֶם תִּפּוֹל. (ג' פעמים, המילים בסדר הפוך)</p>
+    <p>לֵב טָהוֹר בְּרָא לִי אֱלֹהִים, וְרוּחַ נָכוֹן חַדֵּשׁ בְּקִרְבִּי. (ג' פעמים)</p>
+    <p>
+      (אומרים זה לזה ג' פעמים):<br/>
+      שָׁלוֹם עֲלֵיכֶם - משיבים: עֲלֵיכֶם שָׁלוֹם.
+    </p>
+    <p>דָּוִד מֶלֶךְ יִשְׂרָאֵל חַי וְקַיָּם. (ג' פעמים)</p>
+    <p>אָמֵן, אָמֵן, אָמֵן. נֶצַח, נֶצַח, נֶצַח. סֶלָה, סֶלָה, סֶלָה. וָעֶד, וָעֶד, וָעֶד.</p>
+    <p>שִׁיר לַמַּעֲלוֹת אֶשָּׂא עֵינַי אֶל הֶהָרִים מֵאַיִן יָבֹא עֶזְרִי... (תהילים קכא – 7 פעמים)</p>
+    <p>הַלְלוּיָהּ הַלְלוּ אֵל בְּקָדְשׁוֹ... (תהילים קנ – 3 פעמים)</p>
+    <p>
+      תָּנָא דְּבֵי רִבִּי יִשְׁמָעֵאל אִלְמָלֵי לֹא זָכוּ יִשְׂרָאֵל אֶלָּא לְהַקְבִּיל פְּנֵי אֲבִיהֶם שֶׁבַּשָּׁמַיִם פַּעַם אַחַת בַּחֹדֶשׁ דַּיָּם. אָמַר אַבַּיֵּי הֵלְכָךְ נֵימְרִינְהוּ מֵעוֹמֶד.
+    </p>
+    <p>וְהָיָה אוֹר הַלְּבָנָה כְּאוֹר הַחַמָּה... (ישעיהו ל, כו)</p>
+  </div>
+);
+
 
 const CrosshairIcon: React.FC<{ color: string }> = ({ color }) => (
   <svg width="60" height="60" viewBox="0 0 100 100" className="absolute" style={{ color: color }} aria-hidden="true">
@@ -76,6 +118,7 @@ const App: React.FC = () => {
   const [moonIllumination, setMoonIllumination] = useState<number | null>(null);
   const [blessing, setBlessing] = useState<string | null>(null);
   const [isFetchingBlessing, setIsFetchingBlessing] = useState(false);
+  const [isTraditionalBlessingOpen, setIsTraditionalBlessingOpen] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>(() => (localStorage.getItem('lunar-guide-theme') as 'light' | 'dark') || 'dark');
   const [language, setLanguage] = useState<string>(() => localStorage.getItem('lunar-guide-language') || 'en');
   const [crosshairColor, setCrosshairColor] = useState<string>(() => localStorage.getItem('lunar-guide-crosshair-color') || '#FFFFFF');
@@ -315,9 +358,14 @@ const App: React.FC = () => {
             </div>
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-full px-4 text-center">
               {guidance.isMoonInView && (
-                 <button onClick={handleGetBlessing} disabled={isFetchingBlessing} className="px-6 py-3 bg-green-600/80 backdrop-blur-sm rounded-lg text-white text-lg font-semibold transition-transform transform hover:scale-105 disabled:bg-gray-500 disabled:cursor-not-allowed">
-                   {isFetchingBlessing ? t.receiving : t.receiveBlessing}
-                 </button>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <button onClick={handleGetBlessing} disabled={isFetchingBlessing} className="px-6 py-3 bg-green-600/80 backdrop-blur-sm rounded-lg text-white text-lg font-semibold transition-transform transform hover:scale-105 disabled:bg-gray-500 disabled:cursor-not-allowed">
+                    {isFetchingBlessing ? t.receiving : t.receiveBlessing}
+                  </button>
+                  <button onClick={() => setIsTraditionalBlessingOpen(true)} className="px-6 py-3 bg-sky-600/80 backdrop-blur-sm rounded-lg text-white text-lg font-semibold transition-transform transform hover:scale-105">
+                    {t.traditionalBlessing}
+                  </button>
+                </div>
               )}
             </div>
             {blessing && (
@@ -325,6 +373,17 @@ const App: React.FC = () => {
                 <div className="bg-gray-100/90 dark:bg-gray-800/90 p-8 rounded-xl shadow-2xl max-w-sm text-center mx-4">
                   <p className="text-2xl italic text-indigo-800 dark:text-indigo-200 font-serif">"{blessing}"</p>
                   <button onClick={() => setBlessing(null)} className="mt-6 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">{t.close}</button>
+                </div>
+              </div>
+            )}
+            {isTraditionalBlessingOpen && (
+              <div className="absolute inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-30" onClick={() => setIsTraditionalBlessingOpen(false)}>
+                <div className="bg-gray-100/95 dark:bg-gray-800/95 p-6 rounded-xl shadow-2xl w-full max-w-lg mx-4 h-[80vh] flex flex-col" onClick={(e) => e.stopPropagation()}>
+                  <h2 className="text-2xl font-bold text-center mb-4">{t.traditionalBlessingTitle}</h2>
+                  <div className="flex-grow overflow-y-auto pr-4">
+                    {sephardicBlessingText}
+                  </div>
+                  <button onClick={() => setIsTraditionalBlessingOpen(false)} className="mt-4 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white self-center">{t.close}</button>
                 </div>
               </div>
             )}
